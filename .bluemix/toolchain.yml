@@ -9,8 +9,8 @@ template:
   header: '![](toolchain.svg?localize)'
   icon: secure-lock-kubernetes.svg
   required:
-    - hello-world-build
-    - hello-world-repo
+    - metrics-transformation-build
+    - metrics-transformation-repo
   info:
     git url: >-
       [https://github.com/rodrabe/metric-transformation-toolchain](https://github.com/rodrabe/metric-transformation-toolchain)
@@ -22,7 +22,7 @@ toolchain:
     getting_started:
       $ref: "#/messages/template.gettingStarted" 
 services:
-  hello-world-repo:
+  metrics-transformation-repo:
     service_id: github_integrated
     parameters:
       repo_name: 'Metrics-Transformation-Service'
@@ -31,18 +31,18 @@ services:
       private_repo: true
       has_issues: true
       enable_traceability: true
-  hello-world-build:
+  metrics-transformation-build:
     service_id: pipeline
     parameters:
       services:
-        - hello-world-repo
+        - metrics-transformation-repo
       name: 'metrics-transformation-{{timestamp}}'
       ui-pipeline: true
       configuration:
         content:
           $text: pipeline.yml
         env:
-          GIT_REPO: hello-world-repo
+          GIT_REPO: metrics-transformation-repo
           CF_APP_NAME: '{{form.pipeline.parameters.app-name}}'
           PROD_SPACE_NAME: '{{form.pipeline.parameters.prod-space}}'
           PROD_ORG_NAME: '{{form.pipeline.parameters.prod-organization}}'
