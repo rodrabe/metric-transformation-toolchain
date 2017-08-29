@@ -22,12 +22,13 @@ toolchain:
     getting_started:
       $ref: "#/messages/template.gettingStarted" 
 services:
-  hello-world-repo:
-    service_id: hostedgit
+  metrics-transformation-repo:
+    service_id: github_integrated
     parameters:
       repo_name: 'Metrics-Transformation-Service'
       repo_url: 'https://github.ibm.com/SLayer'
       type: clone
+      private_repo: true
       has_issues: true
       enable_traceability: true
   hello-world-build:
