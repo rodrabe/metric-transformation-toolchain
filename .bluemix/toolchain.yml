@@ -25,7 +25,7 @@ services:
   metrics-transformation-repo:
     service_id: github_integrated
     parameters:
-      repo_name: 'Metrics_Transformation_Service'
+      repo_name: 'Metrics-Transformation-Service'
       repo_url: 'https://github.ibm.com/SLayer/Metrics-Transformation-Service'
       type: link
       private_repo: true
