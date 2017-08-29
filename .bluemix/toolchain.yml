@@ -9,8 +9,8 @@ template:
   header: '![](toolchain.svg?localize)'
   icon: secure-lock-kubernetes.svg
   required:
-    - hello-world-build
-    - hello-world-repo
+    - metrics-transformation-build
+    - metrics-transformation-repo
   info:
     git url: >-
       [https://github.com/rodrabe/metric-transformation-toolchain](https://github.com/rodrabe/metric-transformation-toolchain)

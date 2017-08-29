@@ -83,26 +83,7 @@ stages:
           echo -e "${red}Kubernetes deployment file 'deployment.yml' not found at the repository root${no_color}"
           exit 1
       fi      
-- name: VALIDATE
-  inputs:
-  - type: job
-    stage: BUILD
-    job: Container build
-  triggers:
-  - type: stage
-  properties:
-  - name: FULL_REPOSITORY_NAME
-    value: ''
-    type: text  
-  jobs:
-  - name: Vulnerability Advisor
-    type: tester
-    extension_id: ibm.devops.services.pipeline.crawler.tester
-    target:
-      region_id: ${PROD_REGION_ID}
-      organization: ${PROD_ORG_NAME}
-      space: ${PROD_SPACE_NAME}
-    WAIT_TIME: '5'
+
 - name: DEPLOY
   inputs:
   - type: job
