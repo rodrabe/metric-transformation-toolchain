@@ -31,18 +31,18 @@ services:
       private_repo: true
       has_issues: true
       enable_traceability: true
-  hello-world-build:
+  metrics-transformation-build:
     service_id: pipeline
     parameters:
       services:
-        - hello-world-repo
-      name: 'hello-world-{{timestamp}}'
+        - metrics-transformation-repo
+      name: 'metrics-transformation-{{timestamp}}'
       ui-pipeline: true
       configuration:
         content:
           $text: pipeline.yml
         env:
-          GIT_REPO: hello-world-repo
+          GIT_REPO: metrics-transformation-repo
           CF_APP_NAME: '{{form.pipeline.parameters.app-name}}'
           PROD_SPACE_NAME: '{{form.pipeline.parameters.prod-space}}'
           PROD_ORG_NAME: '{{form.pipeline.parameters.prod-organization}}'
@@ -50,11 +50,10 @@ services:
           PROD_CLUSTER_NAME: '{{form.pipeline.parameters.prod-cluster-name}}'
           API_KEY: '{{form.pipeline.parameters.api-key}}'
         execute: true
-  webide:
-    service_id: orion
+
 form:
   pipeline:
     parameters:
-      app-name: '{{services.hello-world-repo.parameters.repo_name}}'
+      app-name: '{{services.metrics-transformation-repo.parameters.repo_name}}'
     schema:
       $ref: deploy.json
