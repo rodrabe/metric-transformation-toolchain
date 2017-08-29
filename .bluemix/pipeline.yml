@@ -118,12 +118,12 @@ stages:
 
       echo ""
       echo "DEPLOYED SERVICE:"
-      kubectl describe services hello-service
+      kubectl describe services metrics-transformation-service
 
       echo ""
       echo "DEPLOYED PODS:"
-      kubectl describe pods --selector app=hello-app
+      kubectl describe pods --selector app=metrics-transformation
 
-      port=$(kubectl get services | grep hello-service | sed 's/.*:\([0-9]*\).*/\1/g')
+      port=$(kubectl get services | grep metrics-transformation-service | sed 's/.*:\([0-9]*\).*/\1/g')
       echo ""
       echo "VIEW THE APPLICATION AT: http://$ip_addr:$port"
